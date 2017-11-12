@@ -1,0 +1,82 @@
+{
+  "name": "mapaggregate",
+  "productName": "MapAggregate",
+  "version": "1.0.0",
+  "description": "My Electron application description",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "publish": "electron-forge publish",
+    "lint": "eslint --cache --color --ext .jsx,.js src"
+  },
+  "keywords": [],
+  "author": "MedCelerate",
+  "license": "MIT",
+  "config": {
+    "forge": {
+      "make_targets": {
+        "win32": [
+          "squirrel"
+        ],
+        "darwin": [
+          "zip"
+        ],
+        "linux": [
+          "deb",
+          "rpm"
+        ]
+      },
+      "electronPackagerConfig": {
+        "packageManager": "npm",
+        "icon": "src/images/maicon.icns"
+      },
+      "electronWinstallerConfig": {
+        "name": "MapAggregate"
+      },
+      "electronInstallerDebian": {},
+      "electronInstallerRedhat": {},
+      "github_repository": {
+        "owner": "",
+        "name": ""
+      },
+      "windowsStoreConfig": {
+        "packageName": "",
+        "name": "MapAggregate"
+      }
+    }
+  },
+  "dependencies": {
+    "@blueprintjs/core": "^1.32.0",
+    "@blueprintjs/datetime": "^1.23.0",
+    "electron-compile": "^6.4.2",
+    "electron-devtools-installer": "^2.2.1",
+    "electron-remote": "^1.2.0",
+    "electron-squirrel-startup": "^1.0.0",
+    "halogen": "^0.2.0",
+    "nightmare": "^2.10.0",
+    "node-horseman": "^3.3.0",
+    "phantomjs-prebuilt": "^2.1.16",
+    "react": "^15.6.2",
+    "react-addons-css-transition-group": "^15.6.2",
+    "react-dom": "^15.6.2",
+    "react-hot-loader": "^3.1.1",
+    "react-spinkit": "^3.0.0"
+  },
+  "devDependencies": {
+    "babel-plugin-transform-async-to-generator": "^6.24.1",
+    "babel-plugin-transform-es2015-classes": "^6.24.1",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "electron": "1.7.9",
+    "electron-forge": "^4.1.2",
+    "electron-installer-dmg": "^0.2.1",
+    "electron-prebuilt-compile": "1.7.9",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^15.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-react": "^7.4.0"
+  }
+}
