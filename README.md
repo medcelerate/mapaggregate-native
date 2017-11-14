@@ -7,7 +7,7 @@ Latest Binaries can be found here -> [Releases](https://github.com/medcelerate/m
 
 # Development Guide
 
-Want to contribute? Great! We need all the help we can get to make this great!
+Want to contribute? Great! We need all the help we can get to make this great! Submit a new pull request to add new features.
 
 To build the app [electron-forge](https://electronforge.io/) is used. Before you install it make sure you have at least [Node.js](https://nodejs.org/) v8  and the latest version of npm installed.
 
