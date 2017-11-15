@@ -30,7 +30,10 @@
       },
       "electronPackagerConfig": {
         "packageManager": "npm",
-        "icon": "src/images/maicon.icns"
+        "icon": "src/images/maicon.icns",
+        "osxSign": {
+          "identity": "E25LJ7QF57"
+        }
       },
       "electronWinstallerConfig": {
         "name": "MapAggregate"
@@ -57,7 +60,6 @@
     "halogen": "^0.2.0",
     "nightmare": "^2.10.0",
     "node-horseman": "^3.3.0",
-    "phantomjs-prebuilt": "^2.1.16",
     "react": "^15.6.2",
     "react-addons-css-transition-group": "^15.6.2",
     "react-dom": "^15.6.2",
