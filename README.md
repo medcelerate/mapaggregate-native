@@ -7,7 +7,7 @@ Latest Binaries can be found here -> [Releases](https://github.com/medcelerate/m
 
 # Development Guide
 
-Want to contribute? Great! We need all the help we can get to make this great!
+Want to contribute? Great! We need all the help we can get to make this great! Submit a new pull request to add new features.
 
 To build the app [electron-forge](https://electronforge.io/) is used. Before you install it make sure you have at least [Node.js](https://nodejs.org/) v8  and the latest version of npm installed.
 
@@ -50,7 +50,13 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ```
 
+Any comments can be sent to medcelerate@gmail.com
 
+#### Disclaimer
+
+THIS DOES NOT REPLACE YOUR SECONDARY APPLICATIONS!!
+
+You should still use your secondary portals to double check your status and send communications, as this tool is made to aid you and not replace them. 
 
 
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
