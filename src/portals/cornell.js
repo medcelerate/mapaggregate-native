@@ -17,10 +17,11 @@ function accessCornell (aamcid, birthday) {
     let nightmare = new Nightmare({electronPath:electronpath});
     let userid = String(aamcid);
     let date = String(birthday);
+    date = date.split("T")[0]
     date = date.split("-")
-    let month = date[0]
-    let day = date[1]
-    let year = date[2]
+    let month = date[1]
+    let day = date[2]
+    let year = date[0]
     
     return nightmare
     .goto('https://s018.med.cornell.edu:8443/OSAF/')

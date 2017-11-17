@@ -52,7 +52,6 @@ export default class App extends Component {
     }
     handlers.pulldown(req)
       .then((response) => {
-        console.log(response)
         this.setState({
           data: response,
           view: 'complete'

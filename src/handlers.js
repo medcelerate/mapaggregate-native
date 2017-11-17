@@ -14,7 +14,6 @@ const cornell = require('./portals/cornell')
 
 function computeDeltas(dataUpdated) {
     const usrPath = (electron.app || electron.remote.app).getPath('userData');
-    console.log(usrPath)
     const filePath = path.join(usrPath,'db.json')
     return new Promise(function(resolve,reject){
     if (fs.existsSync(filePath)) {
@@ -73,7 +72,6 @@ function computeDeltas(dataUpdated) {
         data = JSON.stringify(data)
         fs.writeFile(filePath, data, 'utf8', () => {
             resolve(state)
-            console.log(data)
         })
     }
     })
