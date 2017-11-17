@@ -9,10 +9,12 @@ const mayo = require('./portals/mayo')
 const harvard = require('./portals/harvard')
 const cc = require('./portals/cc2')
 const bosU = require('./portals/bu')
+const cornell = require('./portals/cornell')
 
 
 function computeDeltas(dataUpdated) {
     const usrPath = (electron.app || electron.remote.app).getPath('userData');
+    console.log(usrPath)
     const filePath = path.join(usrPath,'db.json')
     return new Promise(function(resolve,reject){
     if (fs.existsSync(filePath)) {
@@ -34,6 +36,7 @@ function computeDeltas(dataUpdated) {
             if (data.hasOwnProperty(key)) {
                 if (typeof dataUpdated[key] == 'undefined' || dataUpdated[key] == -1) {
                     state.push({school: key, update: 'failed'})
+
                 }
                 else if (data[key].data != dataUpdated[key] || data[key].data == true) {
                     data[key].data = dataUpdated[key]
@@ -47,7 +50,6 @@ function computeDeltas(dataUpdated) {
         data = JSON.stringify(data)
         fs.writeFile(filePath, data, 'utf8', () => {
             resolve(state)
-            //console.log('Yay')
         })
     }
     else {
@@ -71,6 +73,7 @@ function computeDeltas(dataUpdated) {
         data = JSON.stringify(data)
         fs.writeFile(filePath, data, 'utf8', () => {
             resolve(state)
+            console.log(data)
         })
     }
     })
@@ -101,13 +104,15 @@ function computeDeltas(dataUpdated) {
     
     // Scratch that I figured out Async so I made EVERYTHING async.
     let dataUpdate = {}
-    let [hd, mo, ce, bu, cn] = await Promise.all([
+    let [hd, mo, ce, bu, cn, cl] = await Promise.all([
         //stanford.accessStanford(req.body.aamcid, req.body.pass),
         harvard.accessHarvard(req.body.aamcid, req.body.pass),
         mayo.accessMayo(req.body.aamcid, req.body.pass),
         casew.accessCase(req.body.email, req.body.pass),
         bosU.accessBU(req.body.email, req.body.pass),
-        cc.accessCC(req.body.email, req.body.pass)])
+        cc.accessCC(req.body.email, req.body.pass),
+        cornell.accessCornell(req.body.aamcid, req.body.date)
+        ])
 
     //let result = await Promise.all(buildPromise)
     //console.log(hd)
@@ -117,9 +122,9 @@ function computeDeltas(dataUpdated) {
         'Mayo Clinic':mo,
         'Case Western':ce,
         'Cleveland Clinic':cn,
-        'Boston University':bu
+        'Boston University':bu,
+        'Weill Cornell': cl
     }
-    //console.log(dataUpdate)
     /*
     dataUpdate.sd = await stanford.accessStanford(req.body.aamcid, req.body.pass);
     dataUpdate.hd = await harvard.accessHarvard(req.body.aamcid, req.body.pass);

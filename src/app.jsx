@@ -14,7 +14,7 @@ if (isDevMode != null) {
 else {
   var electronpath = (electron.app || electron.remote.app).getAppPath()
   var handlerspath = path.join(electronpath,'src/handlers.js')
-  var filePath = path.join(electronpath,'/schools.json')
+  var filePath = path.join(electronpath,'src/schools.json')
 }
 
 const handlers = remote.require(handlerspath)
@@ -46,11 +46,13 @@ export default class App extends Component {
         aamcid: this.state.aamcid,
         pass: this.state.password,
         email: this.state.email,
-        schools: this.state.selectedSchools
+        schools: this.state.selectedSchools,
+        date: this.state.date
       }
     }
     handlers.pulldown(req)
       .then((response) => {
+        console.log(response)
         this.setState({
           data: response,
           view: 'complete'
@@ -104,10 +106,15 @@ export default class App extends Component {
     let dateprops ={
       name:'date'
     }
-    let results = null
 
+    //Sets date for picker below properly
+    let d = new Date();
+    d.setFullYear(1970, 0, 14);
+
+
+    let results
     //This controls the rendering of each school section when execution is completed
-    let SelectedSchools = this.state.SelectedSchools
+    let SelectedSchools = this.state.selectedSchools
     if (this.state.data != null) {
      results = this.state.data.data.map(function (data, i){
        for (var x = 0; x < SelectedSchools.length; x++) {
@@ -189,7 +196,7 @@ export default class App extends Component {
           <input className="pt-input input-modifier" name="aamcid" type="text" placeholder="AAMC ID" onChange={this.handleChange.bind(this)}/>
           <input className="pt-input input-modifier" name="email" type="text" placeholder="Email" onChange={this.handleChange.bind(this)}/>
           <input className="pt-input input-modifier" name="password" type="password" placeholder="Password" onChange={this.handleChange.bind(this)}/>
-          <DateInput format="MM/DD/YYYY" value={this.state.date} inputProps={dateprops} onChange={this.handleDate.bind(this)}/>
+          <DateInput format="MM/DD/YYYY" value={this.state.date} minDate={d} inputProps={dateprops} onChange={this.handleDate.bind(this)}/>
           <button className="pt-button pt-intent-success button-modifier" type="submit">Login</button>
           </div>
         </form>
