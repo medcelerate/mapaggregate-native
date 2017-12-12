@@ -19,7 +19,7 @@ sudo npm install -g electron-forge --allow-root --unsafe-perm=true
 To build the app using electron-forge simply run the following commands.
 ```sh
 $ git clone https://github.com/medcelerate/mapaggregate-native.git
-cd mapaggregate-native
+$ cd mapaggregate-native
 $ npm install
 $ npm start
 ```
